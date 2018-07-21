@@ -12,6 +12,11 @@ import java.util.Calendar;
 
 public class TimePicker extends DialogFragment implements TimePickerDialog.OnTimeSetListener{
 
+    private int requestCode;
+    public void setRequestCode(int requestCode){
+        this.requestCode=requestCode;
+    }
+
     private OnSetTimeListener listener;
 
    /* public TimePicker(){
@@ -56,12 +61,12 @@ public class TimePicker extends DialogFragment implements TimePickerDialog.OnTim
 
         time= hour+":"+mn;
 
-        listener.onSetTime(time);
+        listener.onSetTime(time,requestCode);
         Log.e("Time:)",time);
     }
 
     public interface OnSetTimeListener{
-        void onSetTime(String time);
+        void onSetTime(String time,int requestCode);
     }
 }
 
